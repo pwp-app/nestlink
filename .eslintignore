@@ -1,0 +1,8 @@
+node_modules/
+build/
+dist/
+dist-func/
+**/*.min.js
+**/*-min.js
+**/*.bundle.js
+src/func/**/*.js

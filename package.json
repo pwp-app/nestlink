@@ -1,0 +1,41 @@
+{
+  "name": "nestlink",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview",
+    "build:func": "rollup -c",
+    "start:func": "tigodevs start -t ./.tigodev.json -r ./rollup.config.js",
+    "dev:func": "npm run start",
+    "deploy:func": "tigoldep -t ./.tigodev.json",
+    "f2elint-scan": "f2elint scan",
+    "f2elint-fix": "f2elint fix"
+  },
+  "dependencies": {
+    "less": "^4.1.1",
+    "lottie-web": "^5.7.13",
+    "vue": "^3.2.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^19.0.2",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@tigojs/dev-server": "^0.1.0",
+    "@tigojs/lambda-deploy-script": "^0.1.0",
+    "@types/node": "^16.7.10",
+    "@vitejs/plugin-vue": "^1.6.0",
+    "@vue/compiler-sfc": "^3.2.6",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-ali": "^12.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "f2elint": "^1.2.0",
+    "rollup": "^2.56.3",
+    "typescript": "^4.3.2",
+    "vite": "^2.5.2",
+    "vue-tsc": "^0.2.2"
+  }
+}

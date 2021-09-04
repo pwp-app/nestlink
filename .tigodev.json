@@ -1,0 +1,13 @@
+{
+  "devServer": {
+    "port": 9292,
+    "maxFileSize": 104857600
+  },
+  "lambda": {
+    "allowRequire": [],
+    "env": {}
+  },
+  "rollup": {
+    "output": "./dist-func/tigo-func.js"
+  }
+}
