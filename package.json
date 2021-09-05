@@ -29,7 +29,7 @@
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-image": "^2.1.1",
     "@rollup/plugin-node-resolve": "^13.0.4",
-    "@tigojs/dev-server": "^0.3.0",
+    "@tigojs/dev-server": "^0.4.0",
     "@tigojs/lambda-deploy-script": "^0.1.1",
     "@tigojs/lambda-router": "^0.3.0",
     "@types/lru-cache": "^5.1.1",
