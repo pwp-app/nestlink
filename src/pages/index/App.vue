@@ -284,6 +284,11 @@ input {
         box-shadow: 0px 2px 32px rgba(255, 255, 255, 0.1);
         z-index: 10;
       }
+      input::selection {
+        color: #fafafa;
+        background: #2e2e2e;
+        border-radius: 4px;
+      }
       &-bg {
         background: #fafafa;
         position: absolute;
