@@ -3,5 +3,6 @@ node_modules
 dist
 dist-ssr
 dist-func
+tigo-dev
 *.local
 .history

@@ -5,7 +5,13 @@
   },
   "lambda": {
     "allowRequire": [],
-    "env": {}
+    "allowBuiltin": true,
+    "allowedBuiltin": ["crypto"],
+    "kv": {
+      "enable": true
+    },
+    "env": {},
+    "maxWaitTime": 30
   },
   "rollup": {
     "output": "./dist-func/tigo-func.js"
