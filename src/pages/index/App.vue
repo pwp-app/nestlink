@@ -208,6 +208,8 @@ body,
 #app {
   width: 100vw;
   height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -228,7 +230,11 @@ input {
 .container {
   width: 100vw;
   height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
   overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
   .background {
     width: 100vw;
     height: 100vh;
@@ -251,6 +257,7 @@ input {
     position: relative;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     .title {
       font-size: 68px;
       font-weight: 600;
@@ -281,7 +288,7 @@ input {
         color: #2e2e2e;
         background: transparent;
         letter-spacing: 0.125rem;
-        box-shadow: 0px 2px 32px rgba(255, 255, 255, 0.1);
+        box-shadow: 0px 2px 32px rgba(255, 255, 255, 0.125);
         z-index: 10;
       }
       input::selection {
@@ -349,6 +356,50 @@ input {
           }
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    .background {
+      width: 300vw;
+      transform: translateX(-175vw);
+    }
+    .main {
+      padding: 108px 28px;
+      .title {
+        font-size: 30px;
+        margin-bottom: 32px;
+        .link {
+          .split {
+            margin: 0 0.5rem;
+          }
+        }
+      }
+      .input {
+        input {
+          font-size: 17px;
+          line-height: 40px;
+          padding: 8px 18px;
+          box-shadow: 0px 2px 24px rgba(255, 255, 255, 0.125);
+          letter-spacing: 0.05rem;
+        }
+        &-bg {
+          height: 56px;
+        }
+        .progress {
+          height: 56px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320) {
+  .container {
+    .main {
+      padding: 92px 24px;
     }
   }
 }
