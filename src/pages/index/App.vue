@@ -73,6 +73,11 @@ interface IndexData {
   GITHUB_URL: string;
 }
 
+interface APIResponse {
+  success: boolean;
+  data: string;
+}
+
 const sleep = (time: number) => {
   return new Promise((resolve) => {
     setTimeout(resolve, time);
@@ -208,7 +213,8 @@ export default defineComponent({
         this.registerError = true;
         return;
       }
-      this.shortId = res.data.data;
+      const resData: APIResponse = res.data;
+      this.shortId = resData.data;
       await clipboard.writeText(`${window.location.protocol}/${this.domain}/${this.shortId}`);
       this.showCopyTipTimeout = window.setTimeout(() => {
         this.showCopyTip = true;
