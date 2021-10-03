@@ -29,6 +29,9 @@
             width: `${progress}%`,
           }"
         ></div>
+        <div class="copy-tip" v-if="showCopyTip">
+          <div class="copy-tip__text">链接已复制至剪贴板</div>
+        </div>
       </div>
       <div class="footer">
         <div class="footer-poweredby">
@@ -45,6 +48,7 @@
 <script lang="ts">
 import axios, { AxiosResponse } from 'axios';
 import lottie from 'lottie-web';
+import * as clipboard from 'clipboard-polyfill';
 import waveAnimData from '../../anim/wave.json';
 import GithubIcon from '../../icons/github.vue';
 import config from '../../../nestlink.config';
@@ -62,6 +66,8 @@ interface IndexData {
   isInvalid: boolean;
   registerError: boolean;
   urlChangeTimeout: number | null;
+  showCopyTip: boolean;
+  showCopyTipTimeout: number | null;
   progress: number;
   // consts
   GITHUB_URL: string;
@@ -86,7 +92,9 @@ export default defineComponent({
       isInvalid: false,
       urlChangeTimeout: null,
       registerError: false,
+      showCopyTip: false,
       progress: 0,
+      showCopyTipTimeout: null,
       // constants
       GITHUB_URL,
     };
@@ -135,6 +143,10 @@ export default defineComponent({
       this.urlChangeTimeout = window.setTimeout(() => {
         this.registerUrl(target.value || '');
       }, 750);
+      this.showCopyTip = false;
+      if (this.showCopyTipTimeout) {
+        clearTimeout(this.showCopyTipTimeout);
+      }
     },
     async deleteDisplayLink() {
       while (this.displayLink.length) {
@@ -197,6 +209,10 @@ export default defineComponent({
         return;
       }
       this.shortId = res.data.data;
+      await clipboard.writeText(`${window.location.protocol}/${this.domain}/${this.shortId}`);
+      this.showCopyTipTimeout = window.setTimeout(() => {
+        this.showCopyTip = true;
+      }, 100);
     },
   },
 });
@@ -319,6 +335,12 @@ input {
         z-index: -1;
         pointer-events: none;
         transition: width 100ms ease;
+      }
+      .copy-tip {
+        margin-top: 32px;
+        color: #3e3e3e;
+        letter-spacing: 0.05rem;
+        font-size: 15px;
       }
     }
     .input--invalid {
