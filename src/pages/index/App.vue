@@ -1,16 +1,16 @@
 <template>
   <div class="container">
-    <div class="background" id="background"></div>
+    <div id="background" class="background"></div>
     <div class="main">
       <div class="title">
         <span
           >{{ domain
           }}<span
+            v-if="displayLink"
             :class="{
               link: true,
               'link--error': registerError,
             }"
-            v-if="displayLink"
             ><span class="split">/</span>{{ displayLink }}</span
           >
         </span>
@@ -29,7 +29,7 @@
             width: `${progress}%`,
           }"
         ></div>
-        <div class="copy-tip" v-if="showCopyTip">
+        <div v-if="showCopyTip" class="copy-tip">
           <div class="copy-tip__text">链接已复制至剪贴板</div>
         </div>
       </div>
@@ -137,7 +137,13 @@ export default defineComponent({
         animationData: waveAnimData,
         rendererSettings: {
           preserveAspectRatio: 'none',
+          progressiveLoad: true,
+          hideOnTransparent: true,
         },
+      });
+      this.$nextTick(() => {
+        const svg = el.querySelector('svg');
+        svg?.setAttribute('style', 'width: 100%; height: 100%;');
       });
     },
     handleUrlChange(e: Event) {
