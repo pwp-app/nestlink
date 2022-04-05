@@ -4,7 +4,6 @@ import indexCss from '../../../dist/css/index.css';
 import indexJs from '../../../dist/js/index.js';
 import notFoundCss from '../../../dist/css/notFound.css';
 import notFoundJs from '../../../dist/js/notFound.js';
-import vendorJs from '../../../dist/js/vendor.js';
 import nestLinkConfig from '../../../dist/js/nestlink.config.js';
 import favicon from '../../../dist/favicon.png';
 import { redirectToNotFound } from '../utils/redirect.js';
@@ -16,7 +15,6 @@ const html = {
 
 const js = {
   index: indexJs,
-  vendor: vendorJs,
   notFound: notFoundJs,
   'nestlink.config': nestLinkConfig,
 };
