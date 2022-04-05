@@ -9,9 +9,7 @@
     "build:func": "rollup -c",
     "start:func": "tigodevs start -t ./.tigodev.json -r ./rollup.config.js",
     "dev:func": "npm run start:func",
-    "deploy:func": "tigoldep -t ./.tigodev.json",
-    "f2elint-scan": "f2elint scan",
-    "f2elint-fix": "f2elint fix"
+    "deploy:func": "tigoldep -t ./.tigodev.json"
   },
   "dependencies": {
     "clipboard-polyfill": "^3.0.3",
